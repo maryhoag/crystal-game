@@ -12,8 +12,7 @@ var shinyThings = {
 
 	//choose random number and display
 	getMagicNumber: function() {
-		magicNumber = Math.floor(Math.random() * (120 - 19) + 19);
-		return magicNumber;
+		this.magicNumber = Math.floor(Math.random() * (120 - 19) + 19);
 	},
 
 	//function getRandomArbitrary(min, max) {
@@ -26,14 +25,16 @@ var shinyThings = {
 		this.black.num = Math.floor(Math.random() * (12-1) + 1);
 		this.pink.num = Math.floor(Math.random() * (12 - 1) + 1);
 	},
-	//restart
 
+	
+	//restart
+	//don't need this due to Sean's miracle new object var <333
 	//reset score to 0;
-	restart: function() {
-		sumOfClicks = 0;
-		magicNumber = 0;
-		$("replay").addClass("visibility: visible");
-	}
+	//restart: function() {
+		//sumOfClicks = 0;
+		//magicNumber = 0;
+		//$("replay").addClass("visibility: visible");
+	//}
 
 
 };
@@ -45,20 +46,48 @@ console.log(game.magicNumber); //only console.logging zero but the crystals retu
 			//var b = $('<button>').addClass("crystal").data("let", letters[i]).text(letters[i])
 
 game.getCrystalNumber();
-console.log(game.purple.num);			
+console.log(game.purple.num);
+console.log(game.pink.num);			
 
 //display wins and losses
-while(game.sumOfClicks < game.magicNumber) {
-	$(".image").on("click", function() {
-		if(image.id == "pink") {
-			game.sumOfClicks += game.pink.num;
-			$("#sumOfClicks").html(game.sumOfClicks);
-		}
-		if(image.id == "purple") {
-			game.sumOfClicks += game.purple.num;
-			$("#sumOfClicks").html(game.sumOfClicks);
-		}
-	})
+
+	$("#blue").click(function() {
+			this.sumOfClicks += this.blue.num;
+			$("#sumOfClicks").html(this.sumOfClicks);
+			console.log(this.sumOfClicks);
+		});
+	$(".purple").click(function() {
+			this.sumOfClicks += this.purple.num;
+			$("#sumOfClicks").html(this.sumOfClicks);
+			console.log(this.sumOfClicks);
+
+		});
+	$("#black").click(function() {
+			this.sumOfClicks += this.black.num;
+			$("#sumOfClicks").html(this.sumOfClicks);
+			console.log(this.sumOfClicks);
+		});
+	$("#pink").click(function() {
+			this.sumOfClicks += this.blue.num;
+			$("#sumOfClicks").html(this.sumOfClicks);
+			console.log(this.sumOfClicks);
+		});
+	
+}
+while(game.sumOfClicks < game.magicNumber);
+
+if(game.sumOfClicks == game.magicNumber) {
+	$(".winner").html("You win!!!!!");
+	game.wins++;
+	$("#wins").html(game.wins);
+	$("replay").addClass("visibility: visible");
+}
+
+if(game.sumOfClicks > game.magicNumber) {
+	$(".winner").html("You lose!");
+	game.losses++;
+	$("#losses").html(game.losses);
+	$("replay").addClass("visibility: visible");
 }
 
 	//on click for each crystal image adds points to total
@@ -68,5 +97,9 @@ while(game.sumOfClicks < game.magicNumber) {
 //restart
 
 //reset score to 0;
+$(".replay").on("click", function() {
+	game == null;
+	$("replay").addClass("visibility: hidden");
+})
 
 
