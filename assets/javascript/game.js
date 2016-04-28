@@ -48,7 +48,24 @@ var shinyThings = {
 			$("#sumOfClicks").html(game.sumOfClicks);
 			console.log(game.sumOfClicks);
 		});
+	},
+
+		winner: function() {
+			$(".btn").prop("disabled", true);
+			$(".winner").html("You win!!!!!");
+			game.wins++;
+			$("#wins").html(game.wins);
+			$("replay").addClass("visibility: visible");
+		},
+
+		loser: function() {
+			$(".btn").prop("disabled", true);			
+			$(".winner").html("You lose!");
+			game.losses++;
+			$("#losses").html(game.losses);
+			$("replay").addClass("visibility: visible")
 		}
+
 
 	//restart
 	//don't need this due to Sean's miracle new object var <333
@@ -65,7 +82,7 @@ var shinyThings = {
 var game = shinyThings;
 
 game.getMagicNumber();
-console.log(game.magicNumber); //only console.logging zero but the crystals return random 
+console.log(game.magicNumber); //only console.logging zero but the crystals return random FIXED!
 			//var b = $('<button>').addClass("crystal").data("let", letters[i]).text(letters[i])
 
 game.getCrystalNumber();
@@ -74,22 +91,18 @@ console.log(game.pink.num);
 
 //display wins and losses
 
-
+//this isn't working although the magicNumber logs out fine after it's created
 if(game.sumOfClicks == game.magicNumber) {
-	$(".winner").html("You win!!!!!");
-	game.wins++;
-	$("#wins").html(game.wins);
-	$("replay").addClass("visibility: visible");
+	game.winner();
+	console.log("winner");
 }
 
- else if(game.sumOfClicks > game.magicNumber) {
-	$(".winner").html("You lose!");
-	game.losses++;
-	$("#losses").html(game.losses);
-	$("replay").addClass("visibility: visible");
+else if(game.sumOfClicks > game.magicNumber) {
+	game.loser();
+	console.log("loser");
 } 
 
-else {
+else if(game.sumOfClicks < game.magicNumber) {
 	game.loop();
 }
 
