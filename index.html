@@ -12,39 +12,48 @@
 </head>
 <body>
 
-<div class="jumbotron">Try to reach the magic number <span id="magicNumber"></span>!</div>
+<div class="jumbotron">
+	<h2 class="text-center">Try to reach the magic number <span id="magicNumber"></span>!</h2>
+</div>
 
 <div class="container">
 
 	<div class="row">
 		<div class="col-md-3 crystals">
-			<img src="assets/images/purple.jpg" alt="purple crystal" height="150" width="150">
+			<img src="assets/images/purple.jpg" alt="purple crystal" height="150" width="150" id="purple">
 		</div>
 
 		<div class="col-md-3">
-		<img src="assets/images/blue.jpg" alt="blue crystal" height="150" width="150">
+		<img src="assets/images/blue.jpg" alt="blue crystal" height="150" width="150" id="blue">
 			
 		</div>
 
 		<div class="col-md-3">
-			<img src="assets/images/black.jpg" alt="black crystal" height="150"	width="150">
+			<img src="assets/images/black.jpg" alt="black crystal" height="150"	width="150" id="black">
 		</div>
 
 		<div class="col-md-3">
-			<img src="assets/images/pink.jpg" alt="pink crystal" height="150" width="150">
+			<img src="assets/images/pink.jpg" alt="pink crystal" height="150" width="150" id="pink">
 		</div>
 	</div>
+	<br>
 
 	<div class="row">
-		<div class="col-md-6">
+		 <p>Current number = <span id="sumOfClicks"></span></p>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-4">
 			<p>Wins = <span id="wins">0</span> </p>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-4">
 			<p>Loses = <span id="losses">0</span></p>
 		</div>
 		
 	</div>
-	
+	<div>
+		<button class="btn btn-large btn-success text-centered replay" type="button">Want to play again?</button>
+	</div>
 
 </div>
 

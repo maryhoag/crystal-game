@@ -1,4 +1,26 @@
 /*background image via subtlepatterns.com*/
 body {
-	background-image: assets/images/nice_snow.png
+	background: #fcf2e9;
+}
+
+.jumbotron {
+	background-color: #fae5d3;
+	color: #48C9B0;
+	font-style: oblique;
+	font: Palatino, serif;
+}
+
+img {
+	border-style: solid;
+	border-width: 2px;
+	border-color: #48C9B0;
+}
+
+p {
+	color: #322d2a;
+	font-weight: bold;
+}
+
+.replay {
+	visibility: hidden;
 }
