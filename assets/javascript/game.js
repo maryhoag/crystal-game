@@ -26,7 +26,30 @@ var shinyThings = {
 		this.pink.num = Math.floor(Math.random() * (12 - 1) + 1);
 	},
 
-	
+	loop: function() {
+		$("#blue").click(function() {
+			game.sumOfClicks += game.blue.num;
+			$("#sumOfClicks").html(game.sumOfClicks);
+			console.log(game.sumOfClicks);
+		});
+		$(".purple").click(function() {
+			game.sumOfClicks += game.purple.num;
+			$("#sumOfClicks").html(game.sumOfClicks);
+			console.log(game.sumOfClicks);
+
+		});
+		$("#black").click(function() {
+			game.sumOfClicks += game.black.num;
+			$("#sumOfClicks").html(game.sumOfClicks);
+			console.log(game.sumOfClicks);
+		});
+		$("#pink").click(function() {
+			game.sumOfClicks += game.blue.num;
+			$("#sumOfClicks").html(game.sumOfClicks);
+			console.log(game.sumOfClicks);
+		});
+		}
+
 	//restart
 	//don't need this due to Sean's miracle new object var <333
 	//reset score to 0;
@@ -51,30 +74,6 @@ console.log(game.pink.num);
 
 //display wins and losses
 
-	$("#blue").click(function() {
-			this.sumOfClicks += this.blue.num;
-			$("#sumOfClicks").html(this.sumOfClicks);
-			console.log(this.sumOfClicks);
-		});
-	$(".purple").click(function() {
-			this.sumOfClicks += this.purple.num;
-			$("#sumOfClicks").html(this.sumOfClicks);
-			console.log(this.sumOfClicks);
-
-		});
-	$("#black").click(function() {
-			this.sumOfClicks += this.black.num;
-			$("#sumOfClicks").html(this.sumOfClicks);
-			console.log(this.sumOfClicks);
-		});
-	$("#pink").click(function() {
-			this.sumOfClicks += this.blue.num;
-			$("#sumOfClicks").html(this.sumOfClicks);
-			console.log(this.sumOfClicks);
-		});
-	
-}
-while(game.sumOfClicks < game.magicNumber);
 
 if(game.sumOfClicks == game.magicNumber) {
 	$(".winner").html("You win!!!!!");
@@ -83,11 +82,15 @@ if(game.sumOfClicks == game.magicNumber) {
 	$("replay").addClass("visibility: visible");
 }
 
-if(game.sumOfClicks > game.magicNumber) {
+ else if(game.sumOfClicks > game.magicNumber) {
 	$(".winner").html("You lose!");
 	game.losses++;
 	$("#losses").html(game.losses);
 	$("replay").addClass("visibility: visible");
+} 
+
+else {
+	game.loop();
 }
 
 	//on click for each crystal image adds points to total
@@ -98,7 +101,7 @@ if(game.sumOfClicks > game.magicNumber) {
 
 //reset score to 0;
 $(".replay").on("click", function() {
-	game == null;
+	game == shinyThings;
 	$("replay").addClass("visibility: hidden");
 })
 
